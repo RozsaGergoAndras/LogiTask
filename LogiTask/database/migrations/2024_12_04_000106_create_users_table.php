@@ -26,6 +26,8 @@ return new class extends Migration
             $table->boolean('isAssigned')->default(false);
             $table->string('realname', 255)->nullable(true);
             $table->softDeletes();
+            //Kapcsolat
+            $table->foreign('role')->references('id')->on('roles')->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

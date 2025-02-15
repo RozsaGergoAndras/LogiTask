@@ -19,6 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('workstation')->comment('melyik állomáson dolgozott a munkás. csak virtuális, nincs semmihez kötve');
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
+            //Kapcsolat
+            $table->foreign('packageId')->references('packageId')->on('packages');
+            $table->foreign('taskId')->references('id')->on('tasks');
         });
     }
 

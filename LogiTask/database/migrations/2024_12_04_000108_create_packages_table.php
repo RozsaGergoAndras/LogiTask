@@ -12,12 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('packagecontent', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('packageId');
-            $table->unsignedBigInteger('partId');
+        Schema::create('packages', function (Blueprint $table) {
+            $table->id('packageId');
+            $table->unsignedBigInteger('creatorId');
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
+            //Kapcsolat
+            $table->foreign('creatorId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

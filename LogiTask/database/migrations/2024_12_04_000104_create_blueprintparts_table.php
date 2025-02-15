@@ -12,15 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productionbatches', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('assigner');
-            $table->integer('remainingCount');
-            $table->integer('productionCount');
-            $table->timestamp('assignedDate')->useCurrent();
-            $table->unsignedBigInteger('blueprintid');
+        Schema::create('blueprintparts', function (Blueprint $table) {
+            $table->id('bpId');
+            $table->unsignedBigInteger('partId');
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
+
+            //Kapcsolat
+            $table->foreign('partId')->references('partId')->on('parts')->onDelete('cascade');
+            $table->foreign('bpId')->references('bpId')->on('blueprints')->onDelete('cascade');
         });
     }
 

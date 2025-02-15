@@ -12,11 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventory', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('partId');
-            $table->softDeletes(); // Soft delete mező hozzáadása
-            $table->timestamps();
+        Schema::create('productionflows', function (Blueprint $table) {
+            $table->id(); // automatikus primary key
+            $table->string('name', 255); // VARCHAR(255) a name oszlophoz
+            $table->timestamps(); // created_at és updated_at oszlopok
+            $table->softDeletes(); // soft delete mező (deleted_at)
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('productionflows');
     }
 };

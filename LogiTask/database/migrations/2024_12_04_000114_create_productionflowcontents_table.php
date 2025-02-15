@@ -14,11 +14,13 @@ return new class extends Migration
     {
         Schema::create('productionflowcontent', function (Blueprint $table) {
             $table->id(); // automatikus primary key
-            $table->foreignId('flowId')->constrained('productionflow')->onDelete('cascade'); // foreign key a productionflow-ra
             $table->integer('sequentialnumber'); // INT oszlop a sorrendhez
-            $table->integer('tasktypeid'); // INT oszlop a tasktypeid-hez
+            $table->unsignedBigInteger('tasktypeid'); // INT oszlop a tasktypeid-hez
             $table->timestamps(); // created_at és updated_at oszlopok
             $table->softDeletes(); // soft delete mező (deleted_at)
+            //Kapcsolat
+            $table->foreign('id')->references('id')->on('productionflows')->onDelete('cascade');
+            $table->foreign('tasktypeid')->references('taskTypeId')->on('tasktypes')->onDelete('cascade');
         });
     }
 

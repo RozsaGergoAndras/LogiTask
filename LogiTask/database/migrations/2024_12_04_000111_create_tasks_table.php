@@ -24,6 +24,10 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
+            //Kapcsolat
+            $table->foreign('assigner')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('worker')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('taskType')->references('taskTypeId')->on('tasktypes')->onDelete('cascade');
         });
     }
 

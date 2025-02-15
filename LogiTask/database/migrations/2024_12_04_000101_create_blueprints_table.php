@@ -16,9 +16,12 @@ return new class extends Migration
             $table->id('bpId');
             $table->string('bpName');
             $table->string('instructionlink')->nullable();
-            $table->unsignedBigInteger('productionflowid');
+            //$table->unsignedBigInteger('productionflowid');
+            $table->foreignId('productionflowid');
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
+            //Kapcsolat
+            $table->foreign('productionflowid')->references('id')->on('productionflows')->onDelete('cascade');
         });
     }
 
