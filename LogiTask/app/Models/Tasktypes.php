@@ -9,4 +9,14 @@ class Tasktypes extends Model
 {
     /** @use HasFactory<\Database\Factories\TasktypesFactory> */
     use HasFactory;
+
+    /*public function roles()
+    {
+        return $this->hasMany(Roles::class);
+    }*/
+
+    public function assingableRoles()
+    {
+        return $this->hasMany(Roles::class);
+    }
 }

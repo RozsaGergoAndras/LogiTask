@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('isAssigned')->default(false);
             $table->string('realname', 255)->nullable(true);
             $table->softDeletes();
+            $table->unsignedBigInteger('workerState')->default("1");
             //Kapcsolat
             $table->foreign('role')->references('id')->on('roles')->onDelete('cascade');
         });

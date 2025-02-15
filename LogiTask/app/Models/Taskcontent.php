@@ -9,4 +9,9 @@ class Taskcontent extends Model
 {
     /** @use HasFactory<\Database\Factories\TaskcontentFactory> */
     use HasFactory;
+
+    public function tasks()
+    {
+        return $this->hasMany(Tasks::class);
+    }
 }
