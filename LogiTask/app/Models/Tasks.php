@@ -9,6 +9,7 @@ class Tasks extends Model
 {
     /** @use HasFactory<\Database\Factories\TasksFactory> */
     use HasFactory;
+    protected $fillable =['assigner', 'worker', 'state', 'state0Date', 'state1Date', 'state2Date', 'taskType'];
 
     public function tasktype()
     {

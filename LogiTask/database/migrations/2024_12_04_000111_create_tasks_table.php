@@ -15,13 +15,13 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('assigner');
-            $table->unsignedBigInteger('worker')->nullable();
+            $table->unsignedBigInteger('worker');
             $table->integer('state');
             $table->timestamp('state0Date')->useCurrent();
             $table->timestamp('state1Date')->nullable();
             $table->timestamp('state2Date')->nullable();
             $table->unsignedBigInteger('taskType');
-            $table->text('description')->nullable();
+            //$table->text('description')->nullable();
             $table->softDeletes(); // Soft delete mező hozzáadása
             $table->timestamps();
             //Kapcsolat

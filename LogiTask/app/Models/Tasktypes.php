@@ -15,7 +15,7 @@ class Tasktypes extends Model
         return $this->hasMany(Roles::class);
     }*/
 
-    public function assingableRoles()
+    public function assingableRole()
     {
         return $this->hasMany(Roles::class);
     }

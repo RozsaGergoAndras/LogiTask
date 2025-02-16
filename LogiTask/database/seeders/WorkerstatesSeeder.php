@@ -14,9 +14,9 @@ class WorkerstatesSeeder extends Seeder
     public function run(): void
     {
         DB::table('workerstates')->insert([
-            ['id' => 0, 'name' => 'Not Available'],
-            ['id' => 1, 'name' => 'Available'],
-            ['id' => 2, 'name' => 'Busy'],
+            [/*'id' => 0,*/ 'name' => 'Not Available'],
+            [/*'id' => 1,*/ 'name' => 'Available'],
+            [/*'id' => 2,*/ 'name' => 'Busy'],
         ]);
     }
 }

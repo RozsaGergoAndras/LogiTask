@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('tasktypes', function (Blueprint $table) {
             $table->id('taskTypeId');
             $table->string('TaskTypeName');
+            $table->text('description')->nullable();
             //$table->unsignedBigInteger('assignableRole');
             $table->foreignId('assignableRole')->references('id')->on('roles')->onDelete('cascade');
             $table->softDeletes(); // Soft delete mező hozzáadása

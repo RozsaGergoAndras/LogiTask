@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('assigner');
             $table->integer('remainingCount');
             $table->integer('productionCount');
+            $table->integer('productionState');
+            $table->boolean('hasActiveTask');
             $table->timestamp('assignedDate')->useCurrent();
             $table->unsignedBigInteger('blueprintid');
             $table->softDeletes(); // Soft delete mező hozzáadása

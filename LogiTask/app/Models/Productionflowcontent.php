@@ -10,7 +10,7 @@ class Productionflowcontent extends Model
     /** @use HasFactory<\Database\Factories\ProductionflowcontentFactory> */
     use HasFactory;
 
-    public function tasktypes(){
+    public function tasktype(){
         return $this->hasMany(Tasktypes::class);
     }
 }

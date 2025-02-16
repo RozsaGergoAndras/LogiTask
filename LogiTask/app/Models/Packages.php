@@ -9,4 +9,6 @@ class Packages extends Model
 {
     /** @use HasFactory<\Database\Factories\PackagesFactory> */
     use HasFactory;
+
+    protected $fillable =['creatorId'];
 }

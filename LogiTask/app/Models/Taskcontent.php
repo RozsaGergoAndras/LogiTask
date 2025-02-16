@@ -9,9 +9,14 @@ class Taskcontent extends Model
 {
     /** @use HasFactory<\Database\Factories\TaskcontentFactory> */
     use HasFactory;
+    protected $fillable = ['taskId','packageId','link','workstation'];
 
-    public function tasks()
+    public function task()
     {
-        return $this->hasMany(Tasks::class);
+        return $this->hasOne(Tasks::class);
+    }
+
+    public function package(){
+        return $this->hasMany(Packages::class);
     }
 }
